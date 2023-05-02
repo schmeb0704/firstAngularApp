@@ -1,0 +1,37 @@
+<ol>
+  <li>Add a button which says "Display Details"</li>
+  <li>Add a paragraph with any content of your choice</li>
+  <li>
+    Toggle the displaying of that paragraph with the button created in step 1
+  </li>
+  <li>
+    Log all button clicks in an array and output that array below the secret
+    paragraph
+  </li>
+  <li>
+    starting at the 5th log item, get all the future log items a blue background
+    and white color
+  </li>
+</ol>
+<button
+  *ngIf="visibility; else hidden_deets"
+  class="btn btn-primary"
+  (click)="changeVisibility()"
+>
+  Hide Details
+</button>
+
+<ng-template #hidden_deets>
+  <button class="btn btn-primary" (click)="changeVisibility()">
+    Display Details
+  </button>
+</ng-template>
+
+<p *ngIf="visibility">Ha? Hatdog.</p>
+
+<div
+  *ngFor="let nums of clicks; let i = index"
+  [ngClass]="{ fourPlus: clicks.length > 4 && i > 4 }"
+>
+  {{ nums }}
+</div>
